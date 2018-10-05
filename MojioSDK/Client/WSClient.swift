@@ -82,6 +82,8 @@ open class WSClient: RestClient {
                 let dict = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String: Any] {
                 let res = super.parseDict(dict) ?? dict
                 next(res)
+            } else {
+                next(message)
             }
         }
         
